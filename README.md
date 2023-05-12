@@ -29,3 +29,20 @@ make docs
 # auto-build and refresh docs on edit
 make docs-autobuild
 ```
+
+
+## Testing
+
+### PGBadger
+
+- Install pgbadger.
+- Run `make test-with-postgres`
+- Get the docker container ID from Postgres.
+- Get log and generate pgbadger report:
+
+  ```sh
+  # retrieve the container logs, via journalctl or otherwise
+  journalctl -o cat -u docker -t <docker container id> > postgres.log
+  pgbadger postgres.log
+  ```
+- Open the report: `out.html`

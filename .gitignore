@@ -98,3 +98,6 @@ Pipfile
 *.db
 
 .vscode
+
+# PGBadger
+/out.html
