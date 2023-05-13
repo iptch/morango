@@ -12,5 +12,17 @@ services:
     command: "postgres -c log_statement=all -c log_line_prefix='%t %d '"
     volumes:
       - morango-postgres:/var/lib/postgresql/data
+  target:
+    image: postgres:9.6
+    ports:
+      - "15432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: default
+    command: "postgres -c log_statement=all -c log_line_prefix='%t %d '"
+    volumes:
+      - morango-postgres-target:/var/lib/postgresql/data
 volumes:
   morango-postgres:
+  morango-postgres-target:
